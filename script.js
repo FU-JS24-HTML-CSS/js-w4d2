@@ -1,26 +1,34 @@
-const a = ['cat', 'dog', 'horse', 'bunny']
+// setItem sätter in ett nytt key-value pair i localstorage
+localStorage.setItem("name", "jesper")
 
-//a.splice(0, 1, 'elephant')
+// removeItem tar bort nyckeln med tillhörande värde i localstorage
+localStorage.removeItem("name")
 
-//console.log(a)
+// getItem hämtar ett värde baserat på nyckel som du matar in till localstorage
+localStorage.getItem("person")
+
+// clear tar bort alla key-value pairs i localstorage
+localStorage.clear()
+
+// hämtar key-value pair efter inmatat index i funktionen
+localStorage.key()
 
 
-function customSplice(arr, a, b, replacement = null) {
-    const temp = []
-
-    if(replacement === null) {
-        console.log("test")
-        for(let i = 0 ; i < arr.length ; i++) {
-            if(i <= a) {
-                temp[arr[i]]
-            }
-            if(i > b) {
-                temp[arr[i]]
-            }
-        }
-    }
-    
-    return temp
+// vårt objekt vi vill spara i localstorage
+const taco = {
+    name: "taco",
+    hunger: 45,
+    energy: 88,
+    happiness: 100
 }
 
-console.log(customSplice(a, 1, 2))
+// Gör om data till en string som går att spara i localstorage
+//JSON.stringify()
+
+// Gör om en string i localstorage tillbaka till sin ursprungliga form
+//JSON.parse()
+
+
+localStorage.setItem("tacoData",  JSON.stringify(taco))
+
+console.log(JSON.parse(localStorage.getItem("tacoData")))
